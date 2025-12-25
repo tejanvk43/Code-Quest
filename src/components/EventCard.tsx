@@ -37,7 +37,12 @@ const EventCard: React.FC<EventCardProps> = ({ id, name, desc, color = 'blue' })
 
       <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
         <span className="text-sm font-semibold text-slate-400 group-hover:text-slate-600 transition-colors">Details &rarr;</span>
-        <button className={`px-4 py-1.5 rounded text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
+        <button 
+          onClick={(e) => {
+            e.stopPropagation(); // Prevent card click
+            window.location.href = 'https://app-8gixcp0ztqtd.appmedo.com/register';
+          }}
+          className={`px-4 py-1.5 rounded text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
           color === 'red' ? 'bg-red-600 text-white hover:bg-red-700' : 'bg-slate-900 text-white hover:bg-blue-900'
         }`}>
           Register

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 
 // Simplified Context without Firebase Auth dependency
@@ -23,16 +23,32 @@ export const useAuth = () => {
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<any | null>(null);
   const [userRole, setUserRole] = useState<'ADMIN' | 'COORDINATOR' | 'STUDENT' | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  // Initialize from LocalStorage
+  useEffect(() => {
+    const storedUser = localStorage.getItem('currentUser');
+    const storedRole = localStorage.getItem('userRole');
+    
+    if (storedUser && storedRole) {
+        setCurrentUser(JSON.parse(storedUser));
+        setUserRole(storedRole as 'ADMIN' | 'COORDINATOR' | 'STUDENT');
+    }
+    setLoading(false);
+  }, []);
 
   // Mock logout
   const logout = async () => {
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('userRole');
     setCurrentUser(null);
     setUserRole(null);
   };
 
   // Simple login helper (can be expanded later)
   const login = (role: 'ADMIN' | 'COORDINATOR' | 'STUDENT', userData: any) => {
+      localStorage.setItem('currentUser', JSON.stringify(userData));
+      localStorage.setItem('userRole', role);
       setCurrentUser(userData);
       setUserRole(role);
   };
@@ -47,7 +63,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   return (
     <AuthContext.Provider value={value}>
-      {children}
+      {!loading && children}
     </AuthContext.Provider>
   );
 };

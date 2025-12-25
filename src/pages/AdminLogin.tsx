@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import ProfessionalNavbar from '../components/ProfessionalNavbar';
+import { useAuth } from '../contexts/AuthContext';
 
 const AdminLogin: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (email === 'admin@usharama.edu.in' && password === 'admin123') {
+        login('ADMIN', { email, name: 'Main Admin' });
         navigate('/admin');
     } else {
         alert('Invalid Admin Credentials');

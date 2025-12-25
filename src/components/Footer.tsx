@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li><button onClick={() => navigate('/')} className="text-slate-400 hover:text-blue-400 transition-colors cursor-pointer">Home</button></li>
               <li><button onClick={() => navigate('/events')} className="text-slate-400 hover:text-blue-400 transition-colors cursor-pointer">Events</button></li>
-              <li><button onClick={() => navigate('/register')} className="text-slate-400 hover:text-blue-400 transition-colors cursor-pointer">Register</button></li>
+              <li><button onClick={() => window.location.href = 'https://app-8gixcp0ztqtd.appmedo.com/register'} className="text-slate-400 hover:text-blue-400 transition-colors cursor-pointer">Register</button></li>
               <li><button onClick={() => navigate('/login')} className="text-slate-400 hover:text-blue-400 transition-colors cursor-pointer">Coordinator Login</button></li>
             </ul>
           </div>

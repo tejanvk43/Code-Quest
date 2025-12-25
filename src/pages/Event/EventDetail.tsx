@@ -122,7 +122,7 @@ const EventDetail: React.FC = () => {
           {/* Footer Action */}
           <div className="bg-slate-50 p-8 border-t border-slate-100 flex justify-center">
               <button 
-                onClick={() => navigate('/register')}
+                onClick={() => window.location.href = 'https://app-8gixcp0ztqtd.appmedo.com/register'}
                 className="px-10 py-4 bg-blue-900 text-white font-bold text-lg rounded-xl hover:bg-blue-800 transition-all shadow-xl shadow-blue-900/10 hover:-translate-y-1 cursor-pointer"
               >
                 Register for {event.name}

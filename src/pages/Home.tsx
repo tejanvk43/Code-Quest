@@ -46,14 +46,14 @@ const Home: React.FC = () => {
             </RevealOnScroll>
             
             <RevealOnScroll delay={300}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button 
-                  onClick={() => navigate('/register')}
-                  className="px-8 py-4 bg-blue-900 text-white rounded-xl font-bold text-lg shadow-xl shadow-blue-900/20 hover:bg-blue-800 transition-all hover:-translate-y-1 cursor-pointer"
-                >
-                  Register Now
-                </button>
-                <button 
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <button 
+                    onClick={() => window.location.href = 'https://app-8gixcp0ztqtd.appmedo.com/register'}
+                    className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold text-lg shadow-lg shadow-blue-600/30 hover:-translate-y-1 transition-all flex items-center gap-2 cursor-pointer"
+                  >
+                    Register Now <span className="text-xl">&rarr;</span>
+                  </button> 
+                  <button 
                   onClick={() => navigate('/events')}
                   className="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg shadow-lg shadow-slate-200/50 hover:bg-slate-50 hover:border-slate-300 transition-all hover:-translate-y-1 cursor-pointer"
                 >

@@ -16,6 +16,8 @@ import { AuthProvider } from './contexts/AuthContext';
 
 import Registration from './pages/Registration';
 
+import ProtectedRoute from './components/ProtectedRoute';
+
 const App: React.FC = () => {
   return (
     <AuthProvider>
@@ -32,10 +34,31 @@ const App: React.FC = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/adminlogin" element={<AdminLogin />} />
             
-            {/* Protected Routes (Simulated) */}
-            <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/coordinator" element={<CoordinatorDashboard />} />
-            <Route path="/student" element={<StudentDashboard />} />
+            {/* Protected Routes */}
+            <Route 
+              path="/admin" 
+              element={
+                <ProtectedRoute allowedRoles={['ADMIN']}>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/coordinator" 
+              element={
+                <ProtectedRoute allowedRoles={['COORDINATOR']}>
+                  <CoordinatorDashboard />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/student" 
+              element={
+                <ProtectedRoute allowedRoles={['STUDENT']}>
+                  <StudentDashboard />
+                </ProtectedRoute>
+              } 
+            />
           </Routes>
         </Layout>
       </BrowserRouter>

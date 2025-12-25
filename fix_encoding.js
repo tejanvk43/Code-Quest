@@ -53,7 +53,7 @@ const EventDetail: React.FC = () => {
         
         <div className="mt-8 text-center">
             <button 
-              onClick={() => navigate('/register')}
+              onClick={() => navigate('https://app-8gixcp0ztqtd.appmedo.com/register')}
               className="px-8 py-3 bg-[#e63946] text-white font-bold rounded-lg hover:bg-red-600 transition-colors"
             >
               REGISTER FOR THIS EVENT

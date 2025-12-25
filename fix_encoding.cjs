@@ -53,7 +53,7 @@ const EventDetail: React.FC = () => {
         
         <div className="mt-8 text-center">
             <button 
-              onClick={() => navigate('/register')}
+              onClick={() => navigate('https://app-8gixcp0ztqtd.appmedo.com/register')}
               className="px-8 py-3 bg-[#e63946] text-white font-bold rounded-lg hover:bg-red-600 transition-colors"
             >
               REGISTER FOR THIS EVENT
@@ -68,10 +68,10 @@ export default EventDetail;
 `;
 
 try {
-    // Write file with 'utf8' encoding (no BOM by default in Node)
-    fs.writeFileSync(filePath, content, 'utf8');
-    console.log('Successfully wrote EventDetail.tsx with UTF-8 encoding (no BOM).');
+  // Write file with 'utf8' encoding (no BOM by default in Node)
+  fs.writeFileSync(filePath, content, 'utf8');
+  console.log('Successfully wrote EventDetail.tsx with UTF-8 encoding (no BOM).');
 } catch (err) {
-    console.error('Error writing file:', err);
-    process.exit(1);
+  console.error('Error writing file:', err);
+  process.exit(1);
 }

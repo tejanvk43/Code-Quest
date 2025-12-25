@@ -98,7 +98,7 @@ const AdminDashboard: React.FC = () => {
                name,
                rollNumber,
                password,
-               loginUrl: window.location.origin + '/login'
+               loginUrl: 'https://694d4924329c8ee8906fc027--code-quest2025.netlify.app/login' 
            })
        }).then(res => res.json())
          .then(data => {

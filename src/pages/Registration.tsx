@@ -56,24 +56,8 @@ const Registration: React.FC = () => {
         createdAt: serverTimestamp()
       });
 
-      // 2. Save to Supabase (Payment Integration DB)
-      const { error: supabaseError } = await supabase
-        .from('registrations')
-        .insert({
-          full_name: formData.name,
-          roll_number: formData.rollNumber,
-          branch: formData.section.split(' ')[0] || 'Unknown', 
-          section: formData.section,
-          year_of_study: formData.year,
-          email: formData.email,
-          phone: formData.phoneNumber,
-          payment_status: 'pending' 
-        });
-
-      if (supabaseError) {
-        console.error("Supabase Write Error:", supabaseError);
-        // We log but don't block. Firebase write succeeded.
-      }
+      // 2. Save to Supabase (REMOVED - Firebase Only Architecture)
+      // Data is moved to Firebase only after Payment Verification (in Login.tsx)
       
       // NOTE: We do NOT save to Firebase here. 
       // Data is moved to Firebase only after Payment Verification (in Login.tsx)

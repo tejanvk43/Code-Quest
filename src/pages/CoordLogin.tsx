@@ -3,19 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import ProfessionalNavbar from '../components/ProfessionalNavbar';
 import { useAuth } from '../contexts/AuthContext';
 
-const AdminLogin: React.FC = () => {
-  const [email, setEmail] = useState('');
+const CoordLogin: React.FC = () => {
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const { login } = useAuth();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email === 'admin@usharama.edu.in' && password === 'admin1234') {
-        login('ADMIN', { email, name: 'Main Admin' });
-        navigate('/admin');
+    if (username === 'coord1' && password === '1234') {
+        login('COORDINATOR', { email: 'coordinator@usharama.edu.in', name: 'Coordinator' });
+        navigate('/coordinator');
     } else {
-        alert('Invalid Admin Credentials');
+        alert('Invalid Coordinator Credentials');
     }
   };
 
@@ -26,19 +26,19 @@ const AdminLogin: React.FC = () => {
       <div className="flex-grow flex items-center justify-center p-4">
         <div className="w-full max-w-md bg-white p-8 rounded-2xl border border-slate-200 shadow-xl">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-black text-slate-900 mb-2">Admin Portal</h1>
+            <h1 className="text-3xl font-black text-slate-900 mb-2">Coordinator Portal</h1>
             <p className="text-slate-500 text-sm font-bold uppercase tracking-wider">Restricted Access</p>
           </div>
           
           <form onSubmit={handleLogin} className="space-y-6">
             <div>
-              <label className="block text-sm font-bold text-slate-700 mb-2">Admin Email</label>
+              <label className="block text-sm font-bold text-slate-700 mb-2">Username</label>
               <input 
-                type="email" 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="text" 
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-900 font-medium"
-                placeholder="admin@usharama.edu.in"
+                placeholder="coord1"
                 required
               />
             </div>
@@ -50,7 +50,7 @@ const AdminLogin: React.FC = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-900 font-medium"
-                placeholder="••••••••"
+                placeholder="••••"
                 required
               />
             </div>
@@ -68,4 +68,4 @@ const AdminLogin: React.FC = () => {
   );
 };
 
-export default AdminLogin;
+export default CoordLogin;

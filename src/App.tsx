@@ -9,6 +9,7 @@ import Timings from './pages/Event/Timings';
 import RoundDetails from './pages/Event/RoundDetails';
 import Login from './pages/Login';
 import AdminLogin from './pages/AdminLogin';
+import CoordLogin from './pages/CoordLogin';
 import AdminDashboard from './pages/Dashboard/AdminDashboard';
 import CoordinatorDashboard from './pages/Dashboard/CoordinatorDashboard';
 import StudentDashboard from './pages/Dashboard/StudentDashboard';
@@ -33,6 +34,7 @@ const App: React.FC = () => {
             <Route path="/rounds" element={<RoundDetails />} />
             <Route path="/login" element={<Login />} />
             <Route path="/adminlogin" element={<AdminLogin />} />
+            <Route path="/coordlogin" element={<CoordLogin />} />
             
             {/* Protected Routes */}
             <Route 

@@ -4,6 +4,7 @@ import ProfessionalNavbar from '../components/ProfessionalNavbar';
 import Footer from '../components/Footer';
 import RevealOnScroll from '../components/RevealOnScroll';
 import { eventsData } from '../data/eventsData';
+import heroBanner from '../assets/hero_banner.png';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ const Home: React.FC = () => {
                <div className="relative w-full max-w-7xl mx-auto mb-6 transform hover:scale-[1.01] transition-transform duration-500">
                   <div className="absolute inset-0 bg-blue-600/20 blur-2xl rounded-3xl -z-10"></div>
                   <img 
-                    src="/src/assets/hero_banner.png" 
+                    src={heroBanner} 
                     alt="Code & Quest Feria 2025 Banner" 
                     className="w-full h-auto rounded-2xl shadow-2xl border border-white/20"
                   />
